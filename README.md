@@ -3,7 +3,7 @@
 A free resume builder with a clean, single-column, ATS-friendly layout. It runs entirely in the
 browser with no server, so you can host it on GitHub Pages.
 
-**Live site:** https://shaktimm22.github.io/resume_builder_v2/
+**Live site:** https://resumebuilder.innohexit.in/
 
 ## Use
 
@@ -26,12 +26,14 @@ Tabs:
 
 ## Deploy on GitHub Pages
 
-1. Push to the `main` branch.
-2. In the repo, open **Settings → Pages → Build and deployment**, set *Source: Deploy from a branch*, and choose *Branch: `main` / `(root)`*.
-3. The site goes live at `https://shaktimm22.github.io/resume_builder_v2/`.
+1. Push to the `master` branch.
+2. In the repo, open **Settings → Pages → Build and deployment**, set *Source: Deploy from a branch*, and choose *Branch: `master` / `(root)`*.
+3. Custom domain: the `CNAME` file holds `resumebuilder.innohexit.in`. In DNS, a `CNAME` record for
+   `resumebuilder` points to `shaktimm22.github.io` (DNS only, not proxied). Once GitHub has issued
+   the certificate, tick **Enforce HTTPS** in Settings → Pages.
 
-If the repo name or username changes, update the absolute URLs in `index.html`, `builder.html`,
-`sitemap.xml` and `404.html`.
+If the domain changes, update the absolute URLs in `index.html`, `builder.html`, `sitemap.xml`,
+`robots.txt` and the `CNAME` file.
 
 ## SEO checklist
 
@@ -40,7 +42,7 @@ share image, structured data (`WebApplication` and `FAQPage`), `sitemap.xml`, a 
 and a mobile-friendly layout. To get indexed:
 
 1. Add the site in [Google Search Console](https://search.google.com/search-console) as a
-   *URL prefix* property: `https://shaktimm22.github.io/resume_builder_v2/`. Verify it with the
+   *URL prefix* property: `https://resumebuilder.innohexit.in/`. Verify it with the
    HTML-tag method by pasting the `<meta name="google-site-verification" …>` tag into the `<head>`
    of `index.html`.
 2. Submit `sitemap.xml` in Search Console, then use **URL Inspection → Request indexing** on the
@@ -48,8 +50,7 @@ and a mobile-friendly layout. To get indexed:
 3. Do the same in [Bing Webmaster Tools](https://www.bing.com/webmasters), which can import from Google.
 4. Share the link on LinkedIn, GitHub and Reddit. Backlinks are what move rankings most.
 
-A `robots.txt` file only works at the domain root (`shaktimm22.github.io/robots.txt`), so a
-project site can't use one. Submit the sitemap through Search Console instead.
+`robots.txt` allows all crawlers and points them to the sitemap.
 
 ## Files
 
@@ -62,4 +63,4 @@ project site can't use one. Submit the sitemap through Search Console instead.
 - `js/app.js`: editor, preview, export
 - `js/sample.js`: sample data (fictional)
 - `assets/`: favicon, share image, resume preview
-- `sitemap.xml`, `404.html`, `.nojekyll`: GitHub Pages / SEO support
+- `CNAME`, `sitemap.xml`, `robots.txt`, `404.html`, `.nojekyll`: GitHub Pages / SEO support
