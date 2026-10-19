@@ -658,6 +658,16 @@
   window.addEventListener('beforeprint', renderPreviewNow);
 
   // ---------- boot ----------
+  // builder.html?start=blank (from the welcome page) — don't silently wipe saved work.
+  if (new URLSearchParams(location.search).get('start') === 'blank') {
+    history.replaceState(null, '', location.pathname + location.hash);
+    if (!storeGet(STORE_KEY) || confirm('Start a blank resume? Your saved resume in this browser will be replaced (Cancel keeps it).')) {
+      state = blankResume();
+      ui.openSecs = new Set(state.sections.map((s) => s.id));
+      state.sections.forEach((s) => { if (s.type === 'entries') s.items.forEach((it) => ui.openItems.add(it.id)); });
+      save();
+    }
+  }
   const hashTab = location.hash.slice(1);
   if (['content', 'design', 'ats'].includes(hashTab)) ui.tab = hashTab;
   renderPanel();
