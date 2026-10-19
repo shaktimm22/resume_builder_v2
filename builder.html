@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume Builder – Edit &amp; Download Your ATS-Friendly Resume</title>
+  <meta name="description" content="Edit your resume with a live preview, check your ATS score, match keywords from a job description and download a clean, ATS-readable PDF. Free, no sign-up.">
+  <link rel="canonical" href="https://shaktimm22.github.io/resume_builder_v2/builder.html">
+  <meta name="theme-color" content="#2f5bea">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ATS Resume Builder">
+  <meta property="og:title" content="Resume Builder – Edit & Download Your ATS-Friendly Resume">
+  <meta property="og:description" content="Live preview, ATS score checker, job-description keyword match and clean PDF download. Free, no sign-up.">
+  <meta property="og:url" content="https://shaktimm22.github.io/resume_builder_v2/builder.html">
+  <meta property="og:image" content="https://shaktimm22.github.io/resume_builder_v2/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/resume.css">
+  <style id="page-style"></style>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="./" title="Back to home">Resume Builder <span class="badge">ATS-friendly</span></a>
+      <div class="actions">
+        <a class="btn" href="./#how-it-works" title="How to use the builder">Guide</a>
+        <button type="button" class="btn" data-cmd="import" title="Load a resume saved as JSON">Import JSON</button>
+        <button type="button" class="btn" data-cmd="export" title="Save your resume data as JSON">Export JSON</button>
+        <button type="button" class="btn" data-cmd="copy-text" title="Copy a plain-text version for job portal forms">Copy text</button>
+        <button type="button" class="btn" data-cmd="download-txt" title="Download plain-text version">.txt</button>
+        <button type="button" class="btn" data-cmd="blank">New blank</button>
+        <button type="button" class="btn" data-cmd="sample">Load sample</button>
+        <button type="button" class="btn primary" data-cmd="pdf" title="Ctrl+P · choose “Save as PDF”">Download PDF</button>
+      </div>
+      <input type="file" id="file-input" accept="application/json,.json" hidden>
+    </header>
+
+    <main class="layout">
+      <aside class="panel">
+        <nav class="tabs">
+          <button type="button" data-tab="content" class="active">Content</button>
+          <button type="button" data-tab="design">Design</button>
+          <button type="button" data-tab="ats">ATS check <span id="ats-badge" class="score-badge"></span></button>
+        </nav>
+        <div class="panel-body" id="panel-body"></div>
+      </aside>
+
+      <section class="preview-pane">
+        <div class="preview-toolbar">
+          <span id="page-info"></span>
+          <span class="hint">PDF tip: in the print dialog choose <b>Save as PDF</b> and turn <b>Headers and footers</b> off.</span>
+          <div class="zoom">
+            <button type="button" class="icon-btn" data-zoom="out" title="Zoom out">−</button>
+            <span id="zoom-label"></span>
+            <button type="button" class="icon-btn" data-zoom="in" title="Zoom in">+</button>
+            <button type="button" class="btn small" data-zoom="fit">Fit</button>
+          </div>
+        </div>
+        <div class="preview-scroll" id="preview-scroll">
+          <div class="sheet-wrap" id="sheet-wrap"><div class="sheet" id="sheet"></div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="print-root"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/sample.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/ats.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+# --- Personal resume data (never publish) ---
+# Files downloaded from the builder are named <Your_Name>_Resume.<ext>
+*_Resume.json
+*_Resume.txt
+*_Resume.pdf
+# Folders for your own resumes / reference PDFs
+sample/
+personal/
+private/
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# --- Editors / IDEs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Claude Code local settings ---
+.claude/settings.local.json
+
+# --- Tooling (if added later) ---
+node_modules/
+npm-debug.log*
+*.log
+.env
+.env.*
