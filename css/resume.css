@@ -1,0 +1,73 @@
+/* Resume document styles — shared by the on-screen preview and the printed PDF.
+   Sizes are in pt/em so print output matches the preview exactly. */
+
+.resume {
+  --fs: 10pt;
+  --lh: 1.5;
+  --accent: #1c2b45;
+  --font: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --ink: #1f2328;
+  --ink-soft: #3d4450;
+  --rule-gap: 0.75em;
+  font-family: var(--font);
+  font-size: var(--fs);
+  line-height: var(--lh);
+  color: var(--ink);
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.resume *,
+.resume *::before,
+.resume *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.resume a { color: inherit; text-decoration: underline; text-decoration-color: #8a93a3; text-underline-offset: 0.15em; text-decoration-thickness: 0.06em; }
+.resume strong { font-weight: 600; }
+
+/* Header */
+.r-name { font-size: 2em; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; line-height: 1.15; }
+.r-title { font-size: 1.16em; font-weight: 400; color: var(--ink); line-height: 1.3; margin-top: 0.3em; }
+.r-contact { font-size: 0.97em; color: #4b5260; margin-top: 0.55em; }
+.r-contact a { color: var(--ink-soft); }
+.r-contact > a,
+.r-contact > span:not(.r-sep) { white-space: nowrap; }
+.r-sep { color: #9aa1ad; }
+
+/* Sections */
+.r-section { margin-top: 1.6em; }
+.r-heading {
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-bottom: 0.4em;
+  border-bottom: 1.2pt solid var(--accent);
+  margin-bottom: var(--rule-gap);
+  break-after: avoid;
+  page-break-after: avoid;
+}
+.r-text p + p { margin-top: 0.5em; }
+
+/* Skills */
+.r-skills { display: grid; grid-template-columns: max-content 1fr; column-gap: 1.3em; row-gap: 0.45em; }
+.r-skill-label { font-weight: 600; }
+.r-skills > div { break-inside: avoid; }
+.r-skills-inline > div + div { margin-top: 0.3em; }
+
+/* Entries (experience / projects / education) */
+.r-entry + .r-entry { margin-top: 0.85em; }
+.r-entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1.2em; }
+.r-entry-title strong { font-weight: 600; }
+.r-entry-sub { color: var(--ink-soft); }
+.r-date { white-space: nowrap; color: var(--ink-soft); font-size: 0.97em; }
+.r-note { color: var(--ink); }
+.r-keep { break-inside: avoid; page-break-inside: avoid; }
+
+/* Bullets */
+.r-bullets { list-style: disc; padding-left: 1.45em; margin-top: 0.3em; }
+.r-bullets.r-cont { margin-top: 0; }
+.r-bullets li { margin-top: 0.22em; padding-left: 0.1em; break-inside: avoid; page-break-inside: avoid; }
+.r-bullets li:first-child { margin-top: 0; }
+.r-bullets.r-cont li:first-child { margin-top: 0.22em; }
+.r-bullets li::marker { color: var(--ink); }
+.r-list { margin-top: 0; }
